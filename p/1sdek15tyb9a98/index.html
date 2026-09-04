@@ -965,6 +965,13 @@ body{padding-left:var(--side-w)}
 .opt__link,.flat__s a{display:inline-block;padding-block:4px}
 /* El QR se escanea desde la pantalla de ella: 92px daban 2,8px por módulo. */
 @media (max-width:520px){.qrbox .qr{width:104px;height:104px}}
+
+/* Responsive: .deliv saltaba de 3 columnas (>1040px) a 1 sola, sin etapa intermedia. Entre
+   821 y 1040 —tablet apaisada, ventana de laptop a media pantalla— las seis tarjetas se
+   apilaban en una columna con la mitad del ancho vacío al lado. Seis entra parejo en dos. */
+@media (min-width:821px) and (max-width:1040px){
+  .deliv{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 </style>
 </head>
 <body><button class="burger" id="burger" aria-label="Abrir el índice" aria-expanded="false">
